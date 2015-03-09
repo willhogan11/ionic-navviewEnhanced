@@ -9,10 +9,32 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="cordova.js"></script>
 
-    <script src="js/app.js"></script>
+    <script type="text/javascript">
+      angular.module('ionic-navview', ['ionic'])
+
+      .config(function($stateProvider, $urlRouterProvider) {
+
+        
+        $urlRouterProvider.otherwise('/');
+        
+        $stateProvider
+
+        .state('state1', {
+          url: '/',
+          templateUrl: 'state1.html'
+        })
+
+        .state('state2', {
+          url: '/state2',
+          templateUrl: 'state2.html'
+        });
+
+      })
+    </script>
+      
   </head>
   <body ng-app="ionic-navview">
-
+    <ion-nav-view>
     <ion-pane>
       <ion-header-bar class="bar-stable">
         <h1 class="title">Learning about views</h1>
@@ -20,5 +42,24 @@
       <ion-content>
       </ion-content>
     </ion-pane>
+    </ion-nav-view>
+          
+    <script type="text/ng-template" id="state1.html">
+      <ion-view view-title="Home">
+        <ion-content>
+          <h2>I am state 1!</h2>
+          <a href="#/state2">Go to state 2.</a>
+        </ion-content>
+      </ion-view>
+    </script>
+    
+    <script type="text/ng-template" id="state2.html">
+      <ion-view view-title="Two">
+        <ion-content>
+          <h2>I am state 2!</h2>
+        </ion-content>
+      </ion-view>
+    </script>
+      
   </body>
 </html>
