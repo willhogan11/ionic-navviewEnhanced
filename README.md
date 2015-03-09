@@ -11,4 +11,4 @@ This simple Ionic app shows how to use ion-nav-view with templates and states.
 
 4. Add a back button to move back through the states.
 
-5. Add a child state.
+5. Add a child view.
